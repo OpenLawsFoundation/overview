@@ -2,22 +2,16 @@
 title: "Contributors"
 eyebrow: "the people"
 layout: "contributors"
-description: "The people who build and maintain the Open Laws Foundation, and how to join them."
-lede: "A small project, kept honest by a small group. Here is who builds and maintains the Open Laws Foundation, and how you can join them."
-founders:
-  - name: "Matteo Sipione"
-    handle: "Sipioteo"
+description: "The people who build and maintain the Open Laws Foundation, inferred automatically from the organization's own repositories."
+lede: "A small project, kept honest by a small group. This list is rebuilt automatically from the organization's own repositories, so it stays current as people show up."
+# Founders are forced on top by scripts/build-contributors.py. These overrides
+# just give the two of them a hand-written bio and a crisp local photo.
+founder_overrides:
+  sipioteo:
     photo: "/img/people/matteo-sipione.jpg"
-    github: "https://github.com/Sipioteo"
-    website: "https://www.sipio.it"
-    location: "Turin, Italy"
     bio: "M.Sc. Media Engineering at Politecnico di Torino. Works across generative AI, XR, and human-computer interaction. Started the AKN4OLF profile and the ingest pipeline."
-  - name: "Marco Montanari"
-    handle: "sirmmo"
+  sirmmo:
     photo: "/img/people/marco-montanari.jpg"
-    github: "https://github.com/sirmmo"
-    website: "https://ingmmo.com"
-    location: "Bologna, Italy"
     bio: "Software architect. President and lead developer at OpenHistoryMap, founder of GestaltBI and e-dway. Long history of turning open public data into structured, queryable form."
 acknowledgements:
   - name: "Senato della Repubblica bulk data"
@@ -31,7 +25,7 @@ acknowledgements:
     href: "https://www.oasis-open.org/standard/akn-v1-0/"
 ---
 
-The two founders maintain the project today. Everyone else who shows up in the commit
-history, the issues, and the adapters is listed on each repository's contributor graph,
-and that list is the source of truth, not this page. If your work is missing from it, the
-fix is a pull request, not an edit here.
+This page is generated, not hand-curated. Founders aside, everyone here earned their
+place with commits to the foundation's own repositories. Forked data repos don't count,
+and the list ignores nothing and no one: if you have a merged contribution and you're
+missing, it's a bug, not a snub.

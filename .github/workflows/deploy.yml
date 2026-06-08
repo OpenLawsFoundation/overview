@@ -4,6 +4,14 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  # Poll the org every 6 hours so new contributors/members appear without a push.
+  schedule:
+    - cron: "0 */6 * * *"
+  # Lets an external automation (e.g. an org webhook -> this dispatch) rebuild
+  # immediately when a new contributor shows up. Trigger with:
+  #   gh api repos/OpenLawsFoundation/overview/dispatches -f event_type=contributors-changed
+  repository_dispatch:
+    types: [contributors-changed]
 
 # Allow GITHUB_TOKEN to deploy to Pages
 permissions:
@@ -43,6 +51,14 @@ jobs:
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
+
+      - name: Infer contributors from the organization
+        # ORG_PAT (a read:org token) lets the "Core team" section pick up
+        # organization members. Without it the script falls back to public
+        # members and the build still succeeds (founders are always present).
+        env:
+          GH_TOKEN: ${{ secrets.ORG_PAT || secrets.GITHUB_TOKEN }}
+        run: python3 scripts/build-contributors.py
 
       - name: Build with Hugo
         run: |
