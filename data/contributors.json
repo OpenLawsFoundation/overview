@@ -1,0 +1,36 @@
+{
+  "generated_utc": "2026-06-08T11:16:53Z",
+  "org": "OpenLawsFoundation",
+  "owned_repos": [
+    ".github",
+    "archive",
+    "diff",
+    "overview",
+    "pipeline",
+    "spec"
+  ],
+  "founders": [
+    {
+      "login": "Sipioteo",
+      "name": "Matteo Sipione",
+      "avatar": "https://avatars.githubusercontent.com/u/39625454?v=4",
+      "url": "https://github.com/Sipioteo",
+      "blog": "https://www.sipio.it",
+      "location": "Turin",
+      "bio": "M.Sc. Media Engineering @ Politecnico di Torino | Generative AI \u00b7 XR \u00b7 HCI | IEEE-HKN \u00b7 Global Shapers",
+      "contributions": 11
+    },
+    {
+      "login": "sirmmo",
+      "name": "Marco Montanari",
+      "avatar": "https://avatars.githubusercontent.com/u/319800?v=4",
+      "url": "https://github.com/sirmmo",
+      "blog": "https://ingmmo.com",
+      "location": "Bologna, italy",
+      "bio": "Software Architect. Gamer. Visionary.  President and lead dev at @openhistorymap, @openfantasymap  and @JustPlayBo. Founder of @GestaltBI and @ontorag; @e-dway ",
+      "contributions": 0
+    }
+  ],
+  "team": [],
+  "contributors": []
+}

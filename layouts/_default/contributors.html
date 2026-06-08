@@ -1,0 +1,116 @@
+{{ define "main" }}
+{{ $data := hugo.Data.contributors }}
+{{ $ov := .Params.founder_overrides }}
+<article class="doc contributors">
+  <div class="wrap doc-wrap wide">
+    <header class="doc-head">
+      {{ with .Params.eyebrow }}<p class="eyebrow">{{ . }}</p>{{ end }}
+      <h1>{{ .Title }}</h1>
+      {{ with .Params.lede }}<p class="doc-lede">{{ . | safeHTML }}</p>{{ end }}
+    </header>
+
+    {{ with $data.founders }}
+    <section class="founders-block" aria-label="Founders">
+      <h2 class="group-h"><span class="group-h-text">Founders</span></h2>
+      <div class="founder-grid">
+        {{ range . }}
+        {{ $o := index $ov (lower .login) }}
+        {{ $photo := .avatar }}{{ if and $o $o.photo }}{{ $photo = $o.photo }}{{ end }}
+        {{ $bio := .bio }}{{ if and $o $o.bio }}{{ $bio = $o.bio }}{{ end }}
+        <article class="person-card founder">
+          <div class="person-photo">
+            <img src="{{ if hasPrefix $photo "/" }}{{ $photo | relURL }}{{ else }}{{ $photo }}{{ end }}" alt="{{ .name }}" width="112" height="112" loading="lazy" decoding="async">
+            <span class="person-role">Founder</span>
+          </div>
+          <div class="person-body">
+            <h3 class="person-name">{{ .name }}</h3>
+            <p class="person-meta">
+              <a class="person-handle" href="{{ .url }}" rel="noopener">@{{ .login }}</a>
+              {{ with .location }}<span class="person-loc">{{ . }}</span>{{ end }}
+            </p>
+            {{ with $bio }}<p class="person-bio">{{ . }}</p>{{ end }}
+            <p class="person-links">
+              <a href="{{ .url }}" rel="noopener">GitHub ↗</a>
+              {{ with .blog }}<a href="{{ . }}" rel="noopener">Website ↗</a>{{ end }}
+            </p>
+          </div>
+        </article>
+        {{ end }}
+      </div>
+    </section>
+    {{ end }}
+
+    {{ with $data.team }}
+    <section class="team-block" aria-label="Core team">
+      <h2 class="group-h"><span class="group-h-text">Core team</span></h2>
+      <p class="block-note">Members of the <a href="https://github.com/orgs/{{ $data.org }}/people" rel="noopener">organization</a>.</p>
+      <div class="member-grid">
+        {{ range . }}
+        <article class="person-card member">
+          <img class="member-avatar" src="{{ .avatar }}" alt="{{ .name }}" width="64" height="64" loading="lazy" decoding="async">
+          <div class="member-text">
+            <h3 class="person-name sm">{{ .name }}</h3>
+            <a class="person-handle" href="{{ .url }}" rel="noopener">@{{ .login }}</a>
+            {{ with .bio }}<p class="person-bio sm">{{ . }}</p>{{ end }}
+          </div>
+        </article>
+        {{ end }}
+      </div>
+    </section>
+    {{ end }}
+
+    {{ with $data.contributors }}
+    <section class="contrib-block" aria-label="Contributors">
+      <h2 class="group-h"><span class="group-h-text">Contributors</span></h2>
+      <p class="block-note">Everyone with merged commits in the foundation's own repositories.</p>
+      <ul class="contrib-grid">
+        {{ range . }}
+        <li>
+          <a href="{{ .url }}" rel="noopener" title="{{ .login }} · {{ .contributions }} contribution{{ if ne .contributions 1 }}s{{ end }}">
+            <img src="{{ .avatar }}" alt="" width="44" height="44" loading="lazy" decoding="async">
+            <span>@{{ .login }}</span>
+          </a>
+        </li>
+        {{ end }}
+      </ul>
+    </section>
+    {{ end }}
+
+    <section class="maintainers-note">
+      <h2 class="group-h"><span class="group-h-text">How this list is built</span></h2>
+      <div class="doc-body">
+        {{ .Content }}
+      </div>
+      <div class="repo-contrib-grid">
+        {{ range $data.owned_repos }}
+        <a class="repo-contrib" href="https://github.com/{{ $data.org }}/{{ . }}/graphs/contributors" rel="noopener">
+          <code>{{ . }}</code><span>contributor graph ↗</span>
+        </a>
+        {{ end }}
+      </div>
+      <p class="join-cta">
+        Maintain legal data for a jurisdiction, or want to write an adapter?
+        <a href="https://github.com/{{ $data.org }}/pipeline/issues" rel="noopener">Open an issue in <code>pipeline</code> ↗</a>
+      </p>
+    </section>
+
+    {{ with .Params.acknowledgements }}
+    <section class="ack-block" aria-label="Acknowledgements">
+      <h2 class="group-h"><span class="group-h-text">Built on the work of others</span></h2>
+      <ul class="ack-list">
+        {{ range . }}
+        <li>
+          <a href="{{ .href }}" rel="noopener">{{ .name }} ↗</a>
+          <span>{{ .detail }}</span>
+        </li>
+        {{ end }}
+      </ul>
+    </section>
+    {{ end }}
+
+    {{ with $data.generated_utc }}
+    <p class="gen-stamp">List regenerated automatically from the {{ $data.org }} organization. Last build: {{ . }}.</p>
+    {{ end }}
+  </div>
+</article>
+{{ end }}

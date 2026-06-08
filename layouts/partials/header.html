@@ -1,0 +1,28 @@
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="{{ "/" | relURL }}" aria-label="Open Laws Foundation home">
+      <picture class="brand-mark">
+        <source srcset="{{ "/img/olf-mark-light.png" | relURL }}" media="(prefers-color-scheme: dark)">
+        <img src="{{ "/img/olf-mark.png" | relURL }}" alt="" width="36" height="36" decoding="async">
+      </picture>
+      <span class="brand-text">
+        <span class="brand-name">Open Laws Foundation</span>
+        <span class="brand-sub">interoperability &amp; provenance for legislation</span>
+      </span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <input type="checkbox" id="nav-toggle" class="nav-toggle">
+      <label for="nav-toggle" class="nav-toggle-label" aria-hidden="true"><span></span></label>
+      <ul>
+        {{ range site.Menus.main }}
+        {{ $active := or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) }}
+        <li>
+          <a href="{{ .URL }}"{{ if .Params.external }} rel="noopener"{{ end }}{{ if $active }} aria-current="page"{{ end }}>
+            {{ .Name }}{{ if .Params.external }} <span class="ext" aria-hidden="true">↗</span>{{ end }}
+          </a>
+        </li>
+        {{ end }}
+      </ul>
+    </nav>
+  </div>
+</header>

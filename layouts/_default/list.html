@@ -1,0 +1,21 @@
+{{ define "main" }}
+<article class="doc">
+  <div class="wrap doc-wrap">
+    <header class="doc-head">
+      {{ with .Params.eyebrow }}<p class="eyebrow">{{ . }}</p>{{ end }}
+      <h1>{{ .Title }}</h1>
+      {{ with .Params.lede }}<p class="doc-lede">{{ . | safeHTML }}</p>{{ end }}
+    </header>
+    <div class="doc-body">
+      {{ .Content }}
+    </div>
+    {{ with .Pages }}
+    <ul class="page-index">
+      {{ range . }}
+      <li><a href="{{ .RelPermalink }}"><span class="pi-title">{{ .Title }}</span>{{ with .Description }}<span class="pi-desc">{{ . }}</span>{{ end }}</a></li>
+      {{ end }}
+    </ul>
+    {{ end }}
+  </div>
+</article>
+{{ end }}

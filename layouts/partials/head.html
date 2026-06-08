@@ -1,0 +1,27 @@
+{{- $title := .Title -}}
+{{- $isHome := .IsHome -}}
+{{- $pageTitle := cond $isHome site.Title (printf "%s · %s" $title site.Title) -}}
+{{- $desc := or .Description .Summary site.Params.description -}}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ $pageTitle }}</title>
+<meta name="description" content="{{ $desc | plainify | chomp }}">
+<meta name="color-scheme" content="light dark">
+
+<meta property="og:type" content="{{ cond $isHome "website" "article" }}">
+<meta property="og:title" content="{{ $pageTitle }}">
+<meta property="og:description" content="{{ $desc | plainify | chomp }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:site_name" content="{{ site.Title }}">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="{{ .Permalink }}">
+{{ with .OutputFormats.Get "rss" -}}
+<link rel="alternate" type="application/rss+xml" href="{{ .Permalink }}" title="{{ site.Title }}">
+{{- end }}
+
+{{ $css := resources.Get "css/main.css" | minify | fingerprint -}}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+
+<link rel="icon" type="image/png" href="{{ "/favicon.png" | relURL }}">
+<link rel="apple-touch-icon" href="{{ "/apple-touch-icon.png" | relURL }}">

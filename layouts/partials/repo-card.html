@@ -1,0 +1,12 @@
+<article class="repo-card">
+  <header class="repo-card-head">
+    <a class="repo-name" href="{{ .href | relURL }}"><code>{{ .name }}</code></a>
+    <span class="repo-license">{{ .license }}</span>
+  </header>
+  <h3 class="repo-title">{{ .title | safeHTML }}</h3>
+  <p class="repo-desc">{{ .desc | safeHTML }}</p>
+  <footer class="repo-card-foot">
+    <a href="{{ .href | relURL }}">Overview →</a>
+    <a href="{{ .ghref }}" rel="noopener">Source ↗</a>
+  </footer>
+</article>
