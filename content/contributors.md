@@ -8,10 +8,10 @@ lede: "A small project, kept honest by a small group. This list is rebuilt autom
 # just give the two of them a hand-written bio and a crisp local photo.
 founder_overrides:
   sipioteo:
-    photo: "/img/people/matteo-sipione.jpg"
+    photo: "/img/people/matteo-sipione.webp"
     bio: "M.Sc. Media Engineering at Politecnico di Torino. Works across generative AI, XR, and human-computer interaction. Started the AKN4OLF profile and the ingest pipeline."
   sirmmo:
-    photo: "/img/people/marco-montanari.jpg"
+    photo: "/img/people/marco-montanari.webp"
     bio: "Software architect. President and lead developer at OpenHistoryMap, founder of GestaltBI and e-dway. Long history of turning open public data into structured, queryable form."
 acknowledgements:
   - name: "Senato della Repubblica bulk data"

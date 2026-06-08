@@ -1,27 +1,73 @@
 {{- $title := .Title -}}
 {{- $isHome := .IsHome -}}
 {{- $pageTitle := cond $isHome site.Title (printf "%s · %s" $title site.Title) -}}
-{{- $desc := or .Description .Summary site.Params.description -}}
+{{- $desc := (or .Description .Summary site.Params.description) | plainify | chomp -}}
+{{- $ogImg := (or .Params.image "/img/og-card.png") | absURL -}}
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{ $pageTitle }}</title>
-<meta name="description" content="{{ $desc | plainify | chomp }}">
-<meta name="color-scheme" content="light dark">
-
-<meta property="og:type" content="{{ cond $isHome "website" "article" }}">
-<meta property="og:title" content="{{ $pageTitle }}">
-<meta property="og:description" content="{{ $desc | plainify | chomp }}">
-<meta property="og:url" content="{{ .Permalink }}">
-<meta property="og:site_name" content="{{ site.Title }}">
-<meta name="twitter:card" content="summary">
-
+<meta name="description" content="{{ $desc }}">
 <link rel="canonical" href="{{ .Permalink }}">
-{{ with .OutputFormats.Get "rss" -}}
-<link rel="alternate" type="application/rss+xml" href="{{ .Permalink }}" title="{{ site.Title }}">
-{{- end }}
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#fbfaf6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#15161a" media="(prefers-color-scheme: dark)">
+
+<!-- Open Graph -->
+<meta property="og:type" content="{{ cond $isHome "website" "article" }}">
+<meta property="og:site_name" content="{{ site.Title }}">
+<meta property="og:title" content="{{ $pageTitle }}">
+<meta property="og:description" content="{{ $desc }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="{{ $ogImg }}">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{{ site.Title }}: {{ site.Params.tagline }}">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ $pageTitle }}">
+<meta name="twitter:description" content="{{ $desc }}">
+<meta name="twitter:image" content="{{ $ogImg }}">
+<meta name="twitter:image:alt" content="{{ site.Title }}: {{ site.Params.tagline }}">
 
 {{ $css := resources.Get "css/main.css" | minify | fingerprint -}}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
 
-<link rel="icon" type="image/png" href="{{ "/favicon.png" | relURL }}">
+<link rel="icon" type="image/png" sizes="64x64" href="{{ "/favicon.png" | relURL }}">
 <link rel="apple-touch-icon" href="{{ "/apple-touch-icon.png" | relURL }}">
+
+{{ with .OutputFormats.Get "rss" -}}
+<link rel="alternate" type="application/rss+xml" href="{{ .Permalink }}" title="{{ site.Title }}">
+{{- end }}
+
+{{- /* Structured data: Organization + WebSite on the home page */ -}}
+{{ if $isHome }}
+{{- $ld := dict
+  "@context" "https://schema.org"
+  "@graph" (slice
+    (dict
+      "@type" "Organization"
+      "@id" (printf "%s#org" (absURL "/"))
+      "name" site.Title
+      "alternateName" "OLF"
+      "url" (absURL "/")
+      "logo" (absURL "/apple-touch-icon.png")
+      "image" $ogImg
+      "description" site.Params.description
+      "sameAs" (slice site.Params.github)
+    )
+    (dict
+      "@type" "WebSite"
+      "@id" (printf "%s#website" (absURL "/"))
+      "name" site.Title
+      "url" (absURL "/")
+      "inLanguage" "en"
+      "publisher" (dict "@id" (printf "%s#org" (absURL "/")))
+    )
+  )
+-}}
+<script type="application/ld+json">{{ $ld | jsonify | safeJS }}</script>
+{{ end }}
