@@ -1,0 +1,62 @@
+baseURL = "https://openlawsfoundation.org/"
+languageCode = "en"
+title = "Open Laws Foundation"
+enableGitInfo = true
+enableRobotsTXT = true
+
+# Clean, document-like output. No emoji, no tracking, no JS framework.
+disableKinds = ["taxonomy", "term"]
+summaryLength = 30
+
+[pagination]
+  pagerSize = 20
+
+[params]
+  description = "An interoperability and provenance layer for the world's legislation. A profile of Akoma Ntoso, per-jurisdiction adapters, a semantic legal diff, and a conformance suite."
+  tagline = "An interoperability and provenance layer for the world's legislation."
+  github = "https://github.com/OpenLawsFoundation"
+  email = "matteo@sipio.it"
+
+[markup]
+  [markup.goldmark.renderer]
+    unsafe = true
+  [markup.highlight]
+    noClasses = false
+    style = "bw"
+    tabWidth = 2
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 3
+
+[menus]
+  [[menus.main]]
+    name = "Spec"
+    pageRef = "/spec"
+    weight = 10
+  [[menus.main]]
+    name = "Pipeline"
+    pageRef = "/pipeline"
+    weight = 20
+  [[menus.main]]
+    name = "Diff"
+    pageRef = "/diff"
+    weight = 30
+  [[menus.main]]
+    name = "Archive"
+    pageRef = "/archive"
+    weight = 40
+  [[menus.main]]
+    name = "Principles"
+    pageRef = "/principles"
+    weight = 50
+  [[menus.main]]
+    name = "GitHub"
+    url = "https://github.com/OpenLawsFoundation"
+    weight = 60
+    [menus.main.params]
+      external = true
+
+[outputs]
+  home = ["HTML", "RSS"]
+  section = ["HTML"]
+  page = ["HTML"]
