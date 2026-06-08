@@ -30,8 +30,8 @@
             </p>
             {{ with $bio }}<p class="person-bio">{{ . }}</p>{{ end }}
             <p class="person-links">
-              <a href="{{ .url }}" rel="noopener">GitHub ↗</a>
-              {{ with .blog }}<a href="{{ . }}" rel="noopener">Website ↗</a>{{ end }}
+              <a href="{{ .url }}" rel="noopener">GitHub ↗&#xFE0E;</a>
+              {{ with .blog }}<a href="{{ . }}" rel="noopener">Website ↗&#xFE0E;</a>{{ end }}
             </p>
           </div>
         </article>
@@ -84,13 +84,13 @@
       <div class="repo-contrib-grid">
         {{ range $data.owned_repos }}
         <a class="repo-contrib" href="https://github.com/{{ $data.org }}/{{ . }}/graphs/contributors" rel="noopener">
-          <code>{{ . }}</code><span>contributor graph ↗</span>
+          <code>{{ . }}</code><span>contributor graph ↗&#xFE0E;</span>
         </a>
         {{ end }}
       </div>
       <p class="join-cta">
         Maintain legal data for a jurisdiction, or want to write an adapter?
-        <a href="https://github.com/{{ $data.org }}/pipeline/issues" rel="noopener">Open an issue in <code>pipeline</code> ↗</a>
+        <a href="https://github.com/{{ $data.org }}/pipeline/issues" rel="noopener">Open an issue in <code>pipeline</code> ↗&#xFE0E;</a>
       </p>
     </section>
 
@@ -100,7 +100,7 @@
       <ul class="ack-list">
         {{ range . }}
         <li>
-          <a href="{{ .href }}" rel="noopener">{{ .name }} ↗</a>
+          <a href="{{ .href }}" rel="noopener">{{ .name }} ↗&#xFE0E;</a>
           <span>{{ .detail }}</span>
         </li>
         {{ end }}

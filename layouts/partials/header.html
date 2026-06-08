@@ -18,7 +18,7 @@
         {{ $active := or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) }}
         <li>
           <a href="{{ .URL }}"{{ if .Params.external }} rel="noopener"{{ end }}{{ if $active }} aria-current="page"{{ end }}>
-            {{ .Name }}{{ if .Params.external }} <span class="ext" aria-hidden="true">↗</span>{{ end }}
+            {{ .Name }}{{ if .Params.external }} <span class="ext" aria-hidden="true">↗&#xFE0E;</span>{{ end }}
           </a>
         </li>
         {{ end }}
