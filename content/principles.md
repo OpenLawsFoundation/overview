@@ -1,6 +1,7 @@
 ---
 title: "Principles"
 eyebrow: "design philosophy"
+image: "/img/og/principles.png"
 description: "The design philosophy of the Open Laws Foundation: normalize metadata, never content; profile, don't replace; conformance over coordination."
 lede: "A few load-bearing decisions hold this whole project up. They're deliberately conservative. The usual way these projects die is too much ambition, not too little."
 ---

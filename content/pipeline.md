@@ -1,5 +1,6 @@
 ---
 title: "Pipeline: adapters and ingest"
+image: "/img/og/pipeline.png"
 eyebrow: "pipeline"
 description: "Per-jurisdiction adapters and the ingest → validate → publish workflow that turns official sources into validated Akoma Ntoso."
 lede: "The pipeline is where official, already-published legal data becomes validated Akoma Ntoso. One adapter per jurisdiction, one shared workflow, one definition of done: pass the conformance suite."

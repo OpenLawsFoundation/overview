@@ -1,5 +1,6 @@
 ---
 title: "Diff: semantic and type-aware"
+image: "/img/og/diff.png"
 eyebrow: "diff"
 description: "A semantic differ and changeset model that understands Akoma Ntoso. It tells you what kind of change happened, not just that some bytes moved."
 lede: "A text diff tells you that bytes moved. For legislation that is almost useless. The OLF differ understands Akoma Ntoso structure, so it tells you what kind of change happened: a substantive amendment, a change to entry into force, or a cosmetic fix."

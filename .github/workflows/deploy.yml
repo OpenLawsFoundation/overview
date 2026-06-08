@@ -67,6 +67,9 @@ jobs:
             --minify \
             --baseURL "${{ steps.pages.outputs.base_url }}/"
 
+      - name: Validate SEO metadata
+        run: python3 scripts/check-seo.py public
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

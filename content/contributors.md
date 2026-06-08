@@ -2,6 +2,7 @@
 title: "Contributors"
 eyebrow: "the people"
 layout: "contributors"
+image: "/img/og/contributors.png"
 description: "The people who build and maintain the Open Laws Foundation, inferred automatically from the organization's own repositories."
 lede: "A small project, kept honest by a small group. This list is rebuilt automatically from the organization's own repositories, so it stays current as people show up."
 # Founders are forced on top by scripts/build-contributors.py. These overrides

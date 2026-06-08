@@ -1,6 +1,7 @@
 ---
 title: "AKN4OLF: the profile"
 eyebrow: "spec"
+image: "/img/og/spec.png"
 description: "The Open Laws Foundation profile of Akoma Ntoso, plus the conformance suite every adapter must pass."
 lede: "AKN4OLF is a profile of Akoma Ntoso (OASIS LegalDocML) plus the conformance suite that every Open Laws Foundation adapter must pass. It is the entry point to the project. Read this before the other repositories."
 repo: "spec"
