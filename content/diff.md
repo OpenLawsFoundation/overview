@@ -6,49 +6,44 @@ lede: "A text diff tells you that bytes moved. For legislation that is almost us
 repo: "diff"
 ---
 
-## Why a normal diff is not enough
+## Why a normal diff isn't enough
 
-Run `diff` on two versions of an act and you get added and removed lines. But a lawyer,
-a journalist, or a downstream system does not care that line 412 changed. They care
-*which kind* of change it was:
+Run `diff` on two versions of an act and you get added and removed lines. A lawyer, a
+journalist, or a downstream system does not care that line 412 moved. They care what kind
+of change it was. Did the substantive text of an article change? Did the entry into force
+shift? Or was it just a typo fix, a renumbering, a formatting cleanup?
 
-- Did the **substantive text** of an article change?
-- Did the **entry into force** move?
-- Was it a **cosmetic** fix — a typo, a renumbering, a formatting normalization?
-
-These have completely different consequences, and a line-based diff flattens them into one
-undifferentiated pile of "changes". The OLF differ does not.
+Those three things have nothing in common except that the bytes are different. A line-based
+diff throws them all in the same pile. Ours doesn't.
 
 ## Type-aware change classification
 
-Because the differ operates on Akoma Ntoso structure rather than raw text, it knows what
-each node *is*. A change is classified by the kind of element it touches and the kind of
-edit it represents:
+Because the differ works on Akoma Ntoso structure instead of raw text, it knows what each
+node *is*. So it classifies a change by the element it touches and the edit it represents:
 
-- **Text amendment** — the normative content of a provision changed.
-- **Temporal change** — a date in the [`lifecycle`](/spec/#2-time) changed (enactment,
-  entry into force, repeal).
-- **Structural change** — an article was inserted, moved, or renumbered.
-- **Citation change** — a [reference](/spec/#3-citations) was added, removed, or
-  re-targeted.
-- **Cosmetic** — a change with no normative effect.
+- **Text amendment.** The normative content of a provision changed.
+- **Temporal change.** A date in the [`lifecycle`](/spec/#2-time) moved: enactment, entry
+  into force, repeal.
+- **Structural change.** An article was inserted, moved, or renumbered.
+- **Citation change.** A [reference](/spec/#3-citations) was added, removed, or re-targeted.
+- **Cosmetic.** No normative effect at all.
 
-The output is a **changeset**: a structured, machine-readable description of *what kind* of
-change happened between two states, addressed by [OLF identifier](/spec/#1-identity) down
-to the element level.
+The output is a **changeset**: a machine-readable account of what kind of change happened
+between two states, addressed by [OLF identifier](/spec/#1-identity) right down to the
+element.
 
 ## The changeset model
 
-A changeset is a first-class object, not a rendering. It can be stored, queried, and
-reasoned about: "show me every substantive amendment to this act since 2019", or "flag
-temporal changes, ignore cosmetic ones". Because it speaks in OLF identifiers, a changeset
-in one jurisdiction has the same shape as a changeset in another.
+A changeset is a first-class object, not a rendering you read once and throw away. Store it,
+query it, reason over it. "Every substantive amendment to this act since 2019." "Flag
+temporal changes, ignore cosmetic ones." And because it speaks in OLF identifiers, a
+changeset in Italy has the same shape as a changeset in France.
 
-This is the piece that turns the [archive](/archive/) from a snapshot into a history you
-can interrogate.
+This is what turns the [archive](/archive/) from a snapshot into a history you can actually
+interrogate.
 
 ## Status
 
-Early — the changeset model and classifier are being built alongside the first two
-jurisdictions in the [pipeline](/pipeline/), so the diff is exercised against real
-legislative change from day one rather than synthetic examples.
+Early. The classifier and the changeset model are being built next to the first two
+jurisdictions in the [pipeline](/pipeline/), so the differ runs against real legislative
+change from the start, not toy examples.

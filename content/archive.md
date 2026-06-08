@@ -8,36 +8,36 @@ repo: "archive"
 
 ## Generated, not curated
 
-The archive is the *output* of the project, not its source of truth. Every document in it
-was produced by the [pipeline](/pipeline/) from an official source, validated against the
-[conformance suite](/spec/#the-conformance-suite), and is reproducible from that source.
+The archive is the project's *output*, not its source of truth. Every document in it came
+out of the [pipeline](/pipeline/), built from an official source, validated against the
+[conformance suite](/spec/#the-conformance-suite), and reproducible from that source.
 
-Nothing in the archive is edited by hand. If a document is wrong, the fix goes in the
-adapter that produced it — never in the archive itself. This is what makes the corpus
-trustworthy: there is no manual layer where errors or opinions can creep in.
+None of it is edited by hand. If a document is wrong, the fix goes into the adapter that
+produced it, never into the archive. That's the whole point. There is no manual layer where
+a typo, an opinion, or a quiet "correction" can slip in.
 
 ## What's in it
 
-Each act is stored as native Akoma Ntoso, carrying:
+Each act is stored as native Akoma Ntoso, and carries three things:
 
-- its stable [OLF identifier](/spec/#1-identity), resolvable down to the element;
-- normalized [temporal metadata](/spec/#2-time), so "the law as it stood on a date" is a
-  real query;
-- its [citation graph](/spec/#3-citations) — the relationships to other acts.
+- a stable [OLF identifier](/spec/#1-identity), resolvable down to the element;
+- normalized [temporal metadata](/spec/#2-time), so "the law as it stood on a given date" is
+  a real query and not a research project;
+- its [citation graph](/spec/#3-citations): how it relates to every other act.
 
-The *content* of each act stays in the jurisdiction's own Akoma Ntoso profile. The archive
-normalizes the metadata around it, never the legal text inside it.
+The *content* stays in the jurisdiction's own Akoma Ntoso profile. The archive normalizes
+the metadata around the text. It never touches the text itself.
 
 ## Public domain
 
-The archive is released under [**CC0-1.0**](https://creativecommons.org/publicdomain/zero/1.0/) —
-no rights reserved. The law belongs to everyone; a faithful, structured representation of it
-should too. (The code that produces the archive — [spec](/spec/), [pipeline](/pipeline/),
-and [diff](/diff/) — is Apache-2.0.)
+The archive is [**CC0-1.0**](https://creativecommons.org/publicdomain/zero/1.0/). No rights
+reserved. The law belongs to everyone, and a faithful structured copy of it should too. (The
+code that produces it, [spec](/spec/) plus [pipeline](/pipeline/) and [diff](/diff/), is
+Apache-2.0.)
 
 ## Status
 
-Early, and honestly so. The archive grows as adapters land in the
-[pipeline](/pipeline/); the first content comes from the **Italy** and **France** adapters
-now under construction. The structure and licensing are settled; the coverage is just
-beginning.
+Early, and we'd rather say so plainly. The archive grows as adapters land in the
+[pipeline](/pipeline/), and the first content comes from the **Italy** and **France**
+adapters being built now. The structure and the license are settled. The coverage is just
+getting started.

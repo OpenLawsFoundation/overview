@@ -8,51 +8,49 @@ repo: "pipeline"
 
 ## What the pipeline does
 
-The Open Laws Foundation does not invent a corpus. It defines the machinery that lets
-anyone turn their own jurisdiction's *already-published* legal data into a common,
-verifiable, interoperable form — and keep it that way over time.
+We don't invent a corpus. We build the machinery that lets anyone take their own
+jurisdiction's *already-published* legal data and turn it into a common, verifiable,
+interoperable form, then keep it that way as the law changes.
 
-The pipeline is that machinery. For each jurisdiction it runs three stages:
+The pipeline is that machinery. Three stages, one per jurisdiction.
 
 ### 1. Ingest
 
-An **adapter** reads the jurisdiction's official source — a national gazette feed, an open
-data portal, a bulk export — in whatever format that source happens to publish. Adapters
-are deliberately thin and jurisdiction-specific: they know one source's quirks and nothing
-else.
+An **adapter** reads the official source: a national gazette feed, an open-data portal, a
+bulk export, whatever that country actually publishes. Adapters are thin on purpose. Each
+one knows the quirks of exactly one source and nothing else.
 
 ### 2. Validate
 
-The adapter emits Akoma Ntoso conforming to [AKN4OLF](/spec/). The pipeline validates that
-output against the [conformance suite](/spec/#the-conformance-suite). Output that does not
-pass is not published — there is no "mostly correct" tier. This is what keeps adapters
-written by people who have never met each other interoperable.
+The adapter emits Akoma Ntoso that conforms to [AKN4OLF](/spec/), and the pipeline runs it
+against the [conformance suite](/spec/#the-conformance-suite). Output that fails doesn't get
+published. There is no "mostly correct" tier. That single rule is what keeps adapters
+written by people who have never met interoperable.
 
 ### 3. Publish
 
-Validated documents flow into the [`archive`](/archive/), addressed by their stable
-[OLF identifier](/spec/#1-identity) and carrying their normalized
+What passes flows into the [`archive`](/archive/), addressed by its stable
+[OLF identifier](/spec/#1-identity) and carrying its normalized
 [temporal metadata](/spec/#2-time) and [citation graph](/spec/#3-citations).
 
 ## Provenance, not scraping
 
-Every document the pipeline publishes records where it came from and how it was produced.
-The point is not to have *a* copy of the law — it is to have a copy whose lineage back to
-the official source is explicit and reproducible. Re-run the pipeline, get the same result.
-
-That is the difference between a scraped dump and a provenance layer.
+Every document the pipeline emits records where it came from and how it was built. The goal
+isn't to own *a* copy of the law. It's to produce a copy whose lineage back to the official
+source is explicit, and reproducible: re-run the pipeline, get the same bytes. That is the
+whole difference between a scraped dump and a provenance layer.
 
 ## Adding a jurisdiction
 
-An adapter is a contained piece of work: read one official source, emit AKN4OLF, pass the
-suite. You do not need to coordinate with other jurisdictions, and you do not need
-permission — the conformance suite is the gatekeeper, not a committee.
+An adapter is a self-contained piece of work. Read one official source, emit AKN4OLF, pass
+the suite. You don't coordinate with other jurisdictions and you don't ask permission. The
+suite is the gatekeeper, not a committee.
 
-If you maintain legal data for a jurisdiction and want it represented here, open an issue
-in [`pipeline`](https://github.com/OpenLawsFoundation/pipeline/issues).
+Maintain legal data for a jurisdiction and want it here? Open an issue in
+[`pipeline`](https://github.com/OpenLawsFoundation/pipeline/issues).
 
 ## Status
 
-Early. The first adapters under construction are **Italy** and **France** — two civil-law
-systems with different gazettes — chosen to prove the model holds across more than one
-legal tradition before it claims to be general.
+Early. The first two adapters are **Italy** and **France**: two civil-law systems, two very
+different gazettes. We picked them to find out whether one model really holds across more
+than one legal tradition before we claim it's general.

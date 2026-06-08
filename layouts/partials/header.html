@@ -1,7 +1,10 @@
 <header class="site-header">
   <div class="wrap header-inner">
     <a class="brand" href="{{ "/" | relURL }}" aria-label="Open Laws Foundation home">
-      <span class="brand-mark" aria-hidden="true">§</span>
+      <picture class="brand-mark">
+        <source srcset="{{ "/img/olf-mark-light.png" | relURL }}" media="(prefers-color-scheme: dark)">
+        <img src="{{ "/img/olf-mark.png" | relURL }}" alt="" width="36" height="36" decoding="async">
+      </picture>
       <span class="brand-text">
         <span class="brand-name">Open Laws Foundation</span>
         <span class="brand-sub">interoperability &amp; provenance for legislation</span>

@@ -92,15 +92,10 @@ pre code { background: none; padding: 0; font-size: .82rem; }
 }
 .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 4rem; }
 
-.brand { display: flex; align-items: center; gap: .7rem; color: var(--ink); }
+.brand { display: flex; align-items: center; gap: .65rem; color: var(--ink); }
 .brand:hover { text-decoration: none; }
-.brand-mark {
-  display: grid; place-items: center; width: 2rem; height: 2rem; flex: none;
-  background: var(--accent); color: var(--paper); border-radius: 6px;
-  font-family: var(--serif); font-weight: 700; font-size: 1.25rem; line-height: 1;
-}
-@media (prefers-color-scheme: dark) { .brand-mark { color: #15161a; } }
-.brand-mark.small { width: 1.6rem; height: 1.6rem; font-size: 1rem; }
+.brand-mark { display: block; flex: none; line-height: 0; }
+.brand-mark img { display: block; width: 2.2rem; height: 2.2rem; }
 .brand-text { display: flex; flex-direction: column; line-height: 1.15; }
 .brand-name { font-weight: 700; font-size: 1.02rem; letter-spacing: -.01em; }
 .brand-sub { font-family: var(--sans); font-size: .72rem; color: var(--muted); letter-spacing: .01em; }
@@ -274,6 +269,7 @@ pre code { background: none; padding: 0; font-size: .82rem; }
 
 /* ---------- Footer ---------- */
 .site-footer { background: var(--paper-2); border-top: 1px solid var(--rule); padding: 3.5rem 0 2rem; font-size: .92rem; }
+.footer-logo img { display: block; width: auto; height: 5.2rem; margin-bottom: .4rem; }
 .footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 2.5rem; }
 @media (max-width: 760px) { .footer-grid { grid-template-columns: 1fr; gap: 2rem; } }
 .footer-tagline { font-size: 1.02rem; margin: .9rem 0 .6rem; max-width: 32ch; }

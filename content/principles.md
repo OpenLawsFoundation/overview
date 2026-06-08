@@ -2,7 +2,7 @@
 title: "Principles"
 eyebrow: "design philosophy"
 description: "The design philosophy of the Open Laws Foundation: normalize metadata, never content; profile, don't replace; conformance over coordination."
-lede: "A few load-bearing decisions hold this whole project up. They are deliberately conservative — the failure mode for legal-data projects is ambition, not caution."
+lede: "A few load-bearing decisions hold this whole project up. They're deliberately conservative. The usual way these projects die is too much ambition, not too little."
 ---
 
 ## 1. Normalize metadata, never content
@@ -24,13 +24,13 @@ metadata — normalize it.</div>
 
 ## 2. A profile, not a replacement
 
-We are not inventing a format. AKN4OLF is a *profile* of Akoma Ntoso, the OASIS standard,
-in exactly the same sense that AKN4EU, AKN4UN, and AKN4Africa are profiles. We speak the
-language the EU, the UN, and national gazettes already speak — and we do not try to replace
-Akoma Ntoso, ELI, or any national system.
+We're not inventing a format. AKN4OLF is a *profile* of Akoma Ntoso, the OASIS standard, in
+exactly the sense that AKN4EU, AKN4UN, and AKN4Africa are profiles. We speak the language the
+EU, the UN, and national gazettes already speak. We don't try to replace Akoma Ntoso, ELI, or
+any national system.
 
-A new format would ask the whole world to move to us. A profile lets us meet the world where
-it already is.
+A new format asks the whole world to come to you. A profile lets you meet the world where it
+already is.
 
 ## 3. Conformance over coordination
 
@@ -50,13 +50,13 @@ the output.
 
 ## 5. Honest about what we are
 
-This is an open-source project, **not** an incorporated legal entity. We do not solicit or
-accept donations on behalf of a "foundation" that does not exist as a legal body. The name
+This is an open-source project. It is **not** an incorporated legal entity. We don't solicit
+or accept donations on behalf of a "foundation" that doesn't exist as a legal body. The name
 describes the work, not a fundraising vehicle.
 
-And we are early. The first two jurisdictions — Italy and France — exist to *prove* the
-model across two legal traditions before it claims to be general. We would rather say
-"early" plainly than oversell coverage we do not have.
+And we're early. Italy and France exist to *prove* the model across two legal traditions
+before anyone claims it's general. We'd rather say "early" out loud than oversell coverage we
+don't have yet.
 
 ---
 
