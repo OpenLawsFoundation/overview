@@ -12,15 +12,15 @@ jurisdictions, and the projects that try to force it either collapse into a usel
 common denominator or balloon into an unmaintainable schema with a field for every national
 exception.
 
-So we draw a hard line. **Identity, time, and citations** are normalized — every legal
-system has a *when*, a *what-is-named-what*, and a *who-cites-whom*. Everything else — the
-substantive structure and text — stays native, in the jurisdiction's own
+So we draw a hard line. **Identity, time, and citations** are normalized, because every
+legal system has a *when*, a *what-is-named-what*, and a *who-cites-whom*. Everything else,
+the substantive structure and the text, stays native, in the jurisdiction's own
 [Akoma Ntoso](https://www.oasis-open.org/standard/akn-v1-0/) profile.
 
 <div class="callout rule"><span class="callout-label">The test</span>
 If two lawyers from two countries would <strong>argue</strong> about how to model it, it's
-content — leave it native. If they <strong>agree</strong> it exists in both systems, it's
-metadata — normalize it.</div>
+content, so leave it native. If they <strong>agree</strong> it exists in both systems, it's
+metadata, so normalize it.</div>
 
 ## 2. A profile, not a replacement
 
@@ -35,7 +35,7 @@ already is.
 ## 3. Conformance over coordination
 
 The [conformance suite](/spec/#the-conformance-suite) is the project's coordination
-mechanism. An adapter is correct when it passes the suite — not when a committee approves
+mechanism. An adapter is correct when it passes the suite, not when a committee approves
 it. This is what lets contributors who have never met, working on jurisdictions that share
 nothing, produce interoperable output.
 

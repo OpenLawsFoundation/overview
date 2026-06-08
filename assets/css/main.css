@@ -177,7 +177,7 @@ pre code { background: none; padding: 0; font-size: .82rem; }
 .ticks, .crosses { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 1rem; }
 .ticks li, .crosses li { position: relative; padding-left: 1.6rem; font-size: 1rem; line-height: 1.55; }
 .ticks li::before { content: "→"; position: absolute; left: 0; color: var(--pos); font-family: var(--sans); }
-.crosses li::before { content: "—"; position: absolute; left: 0; color: var(--neg); font-family: var(--sans); }
+.crosses li::before { content: "\00D7"; position: absolute; left: 0; color: var(--neg); font-family: var(--sans); font-weight: 600; }
 
 /* ---------- Design-rule quote ---------- */
 .rule-quote { padding: 4.5rem 0; background: var(--accent); color: var(--paper); }
@@ -266,6 +266,45 @@ pre code { background: none; padding: 0; font-size: .82rem; }
 .page-index a:hover { text-decoration: none; padding-left: .5rem; }
 .pi-title { font-weight: 600; font-size: 1.1rem; }
 .pi-desc { color: var(--muted); font-size: .92rem; }
+
+/* ---------- Contributors ---------- */
+.doc-wrap.wide { max-width: 62rem; }
+.group-h { font-size: 1.5rem; letter-spacing: -.01em; margin: 0 0 1.6rem; line-height: 1; }
+.group-h-text { display: inline-block; padding-bottom: .55rem; border-bottom: 2px solid var(--accent); }
+.founders-block { margin-bottom: 3.5rem; }
+.founder-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+@media (max-width: 720px) { .founder-grid { grid-template-columns: 1fr; } }
+
+.person-card { background: var(--card); border: 1px solid var(--rule); border-radius: 14px; box-shadow: var(--shadow); }
+.person-card.founder { padding: 1.8rem; display: flex; gap: 1.5rem; align-items: flex-start; }
+@media (max-width: 460px) { .person-card.founder { flex-direction: column; gap: 1.1rem; } }
+.person-photo { position: relative; flex: none; }
+.person-photo img { width: 7rem; height: 7rem; border-radius: 50%; object-fit: cover; border: 3px solid var(--paper); box-shadow: 0 0 0 1px var(--rule); display: block; }
+.person-role { position: absolute; bottom: -.4rem; left: 50%; transform: translateX(-50%); background: var(--accent); color: var(--paper); font-family: var(--sans); font-size: .62rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: .2rem .6rem; border-radius: 999px; white-space: nowrap; }
+@media (prefers-color-scheme: dark) { .person-role { color: #15161a; } }
+.person-body { min-width: 0; }
+.person-name { font-size: 1.35rem; margin: 0 0 .35rem; letter-spacing: -.01em; }
+.person-meta { display: flex; flex-wrap: wrap; align-items: baseline; gap: .3rem .8rem; margin: 0 0 .8rem; font-family: var(--sans); font-size: .85rem; }
+.person-handle { font-weight: 600; }
+.person-loc { color: var(--muted); }
+.person-bio { margin: 0 0 1rem; color: var(--ink-soft); font-size: 1rem; line-height: 1.55; }
+.person-links { display: flex; gap: 1.2rem; margin: 0; font-family: var(--sans); font-size: .85rem; font-weight: 600; }
+
+.maintainers-note { margin: 3.5rem 0; }
+.maintainers-note .doc-body { max-width: 44rem; }
+.repo-contrib-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: .8rem; margin: 1.8rem 0; }
+@media (max-width: 620px) { .repo-contrib-grid { grid-template-columns: 1fr 1fr; } }
+.repo-contrib { display: flex; flex-direction: column; gap: .25rem; padding: .9rem 1rem; border: 1px solid var(--rule); border-radius: 10px; background: var(--card); color: var(--ink); }
+.repo-contrib:hover { text-decoration: none; border-color: color-mix(in srgb, var(--accent) 40%, var(--rule)); }
+.repo-contrib code { background: none; padding: 0; color: var(--accent); font-weight: 600; font-size: .95rem; }
+.repo-contrib span { font-family: var(--sans); font-size: .72rem; color: var(--muted); }
+.join-cta { font-size: 1.05rem; margin: 1.5rem 0 0; }
+
+.ack-block { margin-top: 3.5rem; padding-top: 2.5rem; border-top: 1px solid var(--rule); }
+.ack-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 1rem; }
+.ack-list li { display: flex; flex-direction: column; gap: .15rem; }
+.ack-list li a { font-weight: 600; }
+.ack-list li span { color: var(--muted); font-size: .95rem; }
 
 /* ---------- Footer ---------- */
 .site-footer { background: var(--paper-2); border-top: 1px solid var(--rule); padding: 3.5rem 0 2rem; font-size: .92rem; }
